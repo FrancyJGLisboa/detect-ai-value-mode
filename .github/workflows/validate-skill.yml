@@ -1,0 +1,23 @@
+name: validate-skill
+
+# Static spec validation only — no API key, no secrets, free on every push.
+# A green run means the skill is compliant with the agentskills.io standard and
+# the Anthropic importer. Trigger-reliability scoring is a manual, subscription-
+# based step (see tools/README.md), deliberately kept out of CI so forks without
+# a key still get a meaningful build.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Validate skill against the SKILL.md spec
+        run: uv run tools/validate_skill.py detect-ai-value-mode-from-codebase

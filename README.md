@@ -20,6 +20,10 @@ Codex CLI, and anything that reads the [agentskills.io](https://agentskills.io)
 open standard). It is not a standalone CLI — you install the skill into your
 agent, then invoke it on a codebase.
 
+> **No API key required.** The skill runs on the agent subscription you already
+> have (Claude Code, Copilot, Codex, etc.). There is nothing to configure, no key
+> to set, and no extra per-use cost — installing the folder is the whole setup.
+
 ---
 
 ## Install (about 20 seconds)
@@ -106,10 +110,12 @@ install — `uv` resolves its one dependency on first run):
 
 ```bash
 uv run tools/validate_skill.py detect-ai-value-mode-from-codebase
-
-# also score trigger reliability (needs an Anthropic key):
-ANTHROPIC_API_KEY=sk-... uv run tools/validate_skill.py detect-ai-value-mode-from-codebase --eval
 ```
+
+Spec validation needs no key. To also check *trigger reliability*, ask your agent
+to score `evals.yaml` against the description (uses your subscription, no key) —
+see [`tools/README.md`](tools/README.md). An optional `--eval` API path exists only
+for headless CI.
 
 See [`tools/README.md`](tools/README.md) for the full gate list and CI wiring.
 

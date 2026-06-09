@@ -361,7 +361,13 @@ def run_eval(skill_dir: Path, threshold: float, model: str) -> list[Finding]:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         findings.append(
-            Finding(OK, "eval", "eval file structurally valid; set ANTHROPIC_API_KEY to run live trigger scoring")
+            Finding(
+                OK,
+                "eval",
+                "eval file structurally valid; for live scoring either ask your agent to "
+                "score evals.yaml against the description (uses your subscription, no key) "
+                "or set ANTHROPIC_API_KEY for offline/CI scoring",
+            )
         )
         return findings
 
