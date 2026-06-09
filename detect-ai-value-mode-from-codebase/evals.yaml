@@ -1,0 +1,24 @@
+# Trigger eval set for detect-ai-value-mode-from-codebase.
+# Run: uv run validate_skill.py <this skill dir> --eval
+# should_fire: phrases where the skill MUST activate (measures recall).
+# should_not_fire: off-topic phrases where it MUST stay quiet (measures specificity).
+
+should_fire:
+  - "what value mode is this codebase?"
+  - "detect the AI value mode of this repo"
+  - "which quadrant does this product fall into — amplifier, substitute, job creator, democratiser?"
+  - "classify my AI product from its code"
+  - "read this codebase and tell me how it creates value and who the buyer is"
+  - "is this an AI copilot or an autonomous agent, judging by the code?"
+  - "assess the strategic positioning of this AI product"
+  - "here's our repo — how should we position and sell this?"
+
+should_not_fire:
+  - "write me a poem about the ocean"
+  - "fix the failing unit test in auth.py"
+  - "what's the weather in São Paulo tomorrow?"
+  - "refactor this function to be more readable"
+  - "explain how a transformer attention head works"
+  - "generate a SQL migration for a new users table"
+  - "summarise this PDF invoice"
+  - "translate this README into Portuguese"
