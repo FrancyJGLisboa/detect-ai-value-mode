@@ -41,15 +41,29 @@ cp -R detect-ai-value-mode/detect-ai-value-mode-from-codebase ~/.claude/skills/
 cp -R detect-ai-value-mode/detect-ai-value-mode-from-codebase .claude/skills/
 ```
 
-Other agents use the same folder, different location:
+Other agents read the same folder from a different location — copy
+`detect-ai-value-mode-from-codebase/` into whichever applies:
 
-| Agent | Personal path | Project path |
-|-------|---------------|--------------|
+| Agent | Personal (all projects) | Project (one repo) |
+|-------|-------------------------|--------------------|
 | Claude Code | `~/.claude/skills/` | `.claude/skills/` |
-| GitHub Copilot | `~/.copilot/skills/` | `.github/skills/` |
-| Cursor / Codex / others | `~/.agents/skills/` | `.agents/skills/` |
+| GitHub Copilot (VS Code & CLI) | `~/.copilot/skills/` *(Windows: `%APPDATA%\github-copilot\skills\`)* | `.github/skills/` |
+| Codex CLI | `~/.codex/skills/` | `.codex/skills/` |
+| Cursor | `~/.cursor/skills/` | `.cursor/skills/` |
 
-Restart or reload your agent so it picks up the new skill.
+Then restart or reload your agent so it picks up the new skill (in Copilot CLI:
+`/skills reload`).
+
+**One-command install for GitHub Copilot** (no clone, no copy):
+
+```bash
+gh skill install FrancyJGLisboa/detect-ai-value-mode detect-ai-value-mode-from-codebase
+```
+
+`gh skill install` (GitHub CLI, 2026-04+) drops the skill into the right directory
+for your Copilot host automatically. Cursor and Codex also read each other's and
+Claude's skill directories for compatibility, so a single `~/.claude/skills/` copy
+is often picked up everywhere — but the table above is the canonical home per agent.
 
 ---
 

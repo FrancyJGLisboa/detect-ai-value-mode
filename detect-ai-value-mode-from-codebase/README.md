@@ -17,11 +17,16 @@ prose, every claim cited to a file or function — no hype, no emojis):
 Drop this folder (keep the name `detect-ai-value-mode-from-codebase`) into a
 skills directory your agent reads:
 
-- Project-scoped: `.claude/skills/`, `.github/skills/`, or `.agents/skills/`
-- Personal-scoped: `~/.claude/skills/`, `~/.copilot/skills/`, or `~/.agents/skills/`
+Canonical directory per agent (personal | project):
+
+- Claude Code: `~/.claude/skills/` | `.claude/skills/`
+- GitHub Copilot (VS Code & CLI): `~/.copilot/skills/` | `.github/skills/`
+- Codex CLI: `~/.codex/skills/` | `.codex/skills/`
+- Cursor: `~/.cursor/skills/` | `.cursor/skills/`
 
 Works with any agent that supports the [agentskills.io](https://agentskills.io)
-open SKILL.md standard — Claude Code, GitHub Copilot, Cursor, Codex CLI, and others.
+open SKILL.md standard. Cursor and Codex also read each other's and Claude's
+directories, so a single `~/.claude/skills/` copy is often picked up everywhere.
 
 ## Use
 

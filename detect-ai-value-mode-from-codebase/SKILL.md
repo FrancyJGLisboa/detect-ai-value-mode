@@ -227,9 +227,11 @@ agent that reads it.
 - Codex CLI (OpenAI)
 - Any agent that reads the agentskills.io open standard
 
-**Install paths**
-- Project-scoped: `.github/skills/`, `.claude/skills/`, or `.agents/skills/`
-- Personal-scoped: `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/`
+**Install paths** (personal | project)
+- Claude Code: `~/.claude/skills/` | `.claude/skills/`
+- GitHub Copilot (VS Code & CLI): `~/.copilot/skills/` | `.github/skills/`
+- Codex CLI: `~/.codex/skills/` | `.codex/skills/`
+- Cursor: `~/.cursor/skills/` | `.cursor/skills/`
 
 Place this folder (named `detect-ai-value-mode-from-codebase`) in one of the
 paths above so the folder name matches the skill `name`.
