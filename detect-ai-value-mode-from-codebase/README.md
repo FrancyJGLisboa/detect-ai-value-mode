@@ -52,6 +52,21 @@ gate in review.py:guard() is exercised only on the low-confidence branch...
 See `references/value_modes.md` for the full scoring rubric and
 `references/verdict_schema.md` for the exact report schema.
 
+## Optional infographic output
+
+Ask for the verdict *"as a diagram"*, *"with an infographic"*, or *"visual
+version"* — in the initial request or as a follow-up — and the skill also
+renders the report as a single self-contained HTML poster
+(`<codebase-name>-value-mode-infographic.html`): a 2×2 quadrant of the four
+mode scores, evidence highlights, defensibility, and top actions, closed by a
+pull quote. It is derived from the finished prose report, so scores never
+diverge, and it opens in any browser (printable to PDF). The prose report
+remains the canonical output.
+
+The visual design system (palette, typography, poster layout) is adapted from
+the companion **infographic-extractor** skill; the spec is bundled at
+`references/infographic_template.md`, so this skill stays standalone.
+
 ## Attribution
 
 The four value modes are drawn from the Enterprise AI Adoption Framework
