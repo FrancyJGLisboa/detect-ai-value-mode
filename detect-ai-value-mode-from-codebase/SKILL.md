@@ -11,10 +11,11 @@ description: >
   pasted code with a question about how the product creates value, who its buyer
   is, or how it should be positioned. Trigger even when the user does not name
   the four modes explicitly — intent to classify an AI product from its code is
-  sufficient.
+  sufficient. When asked for a diagram or infographic version, also renders
+  the verdict as a self-contained HTML poster.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   author: Francy Lisboa Charuto
 ---
 
@@ -179,6 +180,27 @@ Follow the schema in `references/verdict_schema.md` exactly. The report must:
 - Be self-contained: a reader who has not seen the codebase must be able to
   understand the verdict and its reasoning.
 
+### Step 4 (optional) — Render the infographic
+
+This step fires only when the user explicitly asks for a diagram, infographic,
+or visual version of the assessment — either in the initial request ("classify
+this codebase, with a diagram") or as a follow-up to an already-delivered
+report ("now give me the infographic version"). If the user did not ask,
+skip this step entirely and do not offer it.
+
+The infographic accompanies the prose report; it never replaces it. Always
+produce the prose report first (Steps 0–3), then derive the infographic from
+the finished report.
+
+1. Load `references/infographic_template.md` and follow it exactly: design
+   system, report-to-infographic mapping, and pre-delivery checklist.
+2. Generate the HTML from the completed prose report only. Do not re-derive
+   scores or re-read the codebase. Scores, confidence level, and
+   primary/secondary mode emphasis must match the report exactly.
+3. Write a single self-contained `.html` file named
+   `<codebase-name>-value-mode-infographic.html` to the current working
+   directory (or a user-specified location) and report the saved path.
+
 ---
 
 ## Edge cases and failure modes
@@ -212,6 +234,11 @@ The final output is the verdict report as defined in `references/verdict_schema.
 written directly to the conversation (not saved to a file unless the user asks).
 No preamble, no meta-commentary about the skill or the process. Begin directly
 with the report header.
+
+If the user requested the diagram form (Step 4), the output additionally
+includes one self-contained HTML infographic file rendered per
+`references/infographic_template.md`, with its saved path reported after the
+prose report.
 
 ---
 

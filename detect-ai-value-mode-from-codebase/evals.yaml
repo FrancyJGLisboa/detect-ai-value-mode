@@ -12,6 +12,8 @@ should_fire:
   - "is this an AI copilot or an autonomous agent, judging by the code?"
   - "assess the strategic positioning of this AI product"
   - "here's our repo — how should we position and sell this?"
+  - "classify this AI product and give me the verdict as an infographic"
+  - "what value mode is this codebase? include a diagram of the result"
 
 should_not_fire:
   - "write me a poem about the ocean"

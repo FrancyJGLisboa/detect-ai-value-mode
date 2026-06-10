@@ -159,7 +159,7 @@ advice. Format:
     Amplifier      3.0   sales ease: no autonomous path, but sold to wrong buyer
     Substitute     7.5   impl. effort: autonomous dispatch in agent/runner.py:execute()
     Job Creator    2.0   core proposition: clear prior-art SDR function being replaced
-    Democratiser   4.0   real example: zero-config CLI lowers access barrier
+    Democratiser   6.3   real example: zero-config CLI lowers access barrier
     ─────────────────────────────────────────────
     Primary mode:   Substitute
     Secondary mode: Democratiser
